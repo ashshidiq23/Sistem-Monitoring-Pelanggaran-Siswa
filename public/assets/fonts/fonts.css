@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Ruda';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Ruda_400_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(Ruda_400_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(Ruda_400_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ruda/v7/XOnvFWI36RNlu_0zaCpNkw.woff */
+        url(Ruda_400_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ruda/v7/bpsB6EGyJuh7iMK-w_26KfesZW2xOQ-xsNqO47m55DA.ttf */
+        url(Ruda_400_normal.svg#Ruda_400_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=wILtWwDX6hAf08hRivbNVw&skey=260e836d3140a70d&v=v7#Ruda */
+}
+@font-face {
+    font-family: 'Ruda';
+    font-style: normal;
+    font-weight: 700;
+    src: url(Ruda_700_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(Ruda_700_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(Ruda_700_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ruda/v7/NqfDiXLAov4H5k-m4LIQuQ.woff */
+        url(Ruda_700_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ruda/v7/2piNah0ULERMLFWt1GKMAwLUuEpTyoUstqEm5AMlJo4.ttf */
+        url(Ruda_700_normal.svg#Ruda_700_normal) format('svg'); /* {{svg-gf-url}} */
+}
+@font-face {
+    font-family: 'Ruda';
+    font-style: normal;
+    font-weight: 900;
+    src: url(Ruda_900_normal.eot); /* {{embedded-opentype-gf-url}} */
+    src: local('☺'),
+        url(Ruda_900_normal.eot?#iefix) format('embedded-opentype'), /* {{embedded-opentype-gf-url}} */
+        url(Ruda_900_normal.woff) format('woff'), /* http://fonts.gstatic.com/s/ruda/v7/62f-GUHoRIA5Xaf0fgZolw.woff */
+        url(Ruda_900_normal.ttf) format('truetype'), /* http://fonts.gstatic.com/s/ruda/v7/lKDu-bqv6cw2RKra-6wv6QLUuEpTyoUstqEm5AMlJo4.ttf */
+        url(Ruda_900_normal.svg#Ruda_900_normal) format('svg'); /* {{svg-gf-url}} */
+}

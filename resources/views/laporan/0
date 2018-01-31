@@ -1,0 +1,74 @@
+@extends('template')
+
+@section('main')
+
+		<h2>Laporan</h2>
+		@if (!empty($laporan_list))
+			<table class="table table-bordered table-striped table-condensed">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>No. Induk</th>
+						<th>Kode Pelanggaran</th>
+						<th>Kode Penghargaan</th>
+						<th>Tanggal</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($laporan_list as $laporan)
+        	<tr>
+            <td>{{ $laporan->id }}</td>
+						<td>{{ $laporan->no_induk }}</td>
+						<td>{{ $laporan->kode_pelanggaran }}</td>
+						<td>{{ $laporan->kode_penghargaan }}</td>
+            <td>{{ $laporan->created_at->format('d-m-Y')}}</td>
+            <td>
+            	{{--<div class="box-button inline-block">
+                <a href="{{ url('pelanggaran/' .$siswa->no_induk. '/create') }}" class="btn btn-theme02" title="Form Pelanggaran"><span><i class="fa fa-flag"></i></span></a>
+             	</div>
+              <div class="box-button inline-block">
+              	<a href="{{ url('siswa/' . $siswa->no_induk) }}" class="btn btn-success btn-sm" title="Detail Siswa"><span><i class="fa fa-eye"></i></span></a>
+              </div>
+              <div class="box-button inline-block">
+                <a href="{{ url('siswa/' . $siswa->no_induk . '/edit') }}" class="btn btn-warning btn-sm" title="Ubah Data Siswa"><span><i class="fa fa-pencil"></i></span></a>
+              </div>
+              <div class="box-button inline-block">
+              	{!! Form::open(['method' => 'DELETE', 'action' => ['SiswaController@destroy', $siswa->no_induk]]) !!}
+                {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-sm',  'title'=>'Hapus Siswa'] )  }}
+                {!! Form::close() !!}--}}
+              </div>
+              </td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		@else
+			<p>Tidak ada data siswa</p>
+		@endif
+		{{--	<div class="table-nav">
+			<div class="paging">
+                            {{ $siswa_list->links() }}
+			</div>
+		</div>
+
+		<div class="darkblue-panel pn">
+    	<div class="darkblue-header">
+				<h5>JUMLAH SISWA</h5>
+				<h1 class="mt"><i class="fa fa-user fa-3x"></i></h1>
+      </div>
+			<footer>
+				<div class="centered">
+					<h5>{{ $jumlah_siswa }} Siswa</h5>
+				</div>
+				<div>
+					<a href="siswa/create" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Siswa</a>
+				</div>--}}
+			</footer>
+    </div>
+
+@stop
+
+@section('footer')
+	@include('footer')
+@stop

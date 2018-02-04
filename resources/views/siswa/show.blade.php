@@ -62,7 +62,7 @@
 		</tr>
 	</table>
 	@if (Auth::user()->level >1)
-	<a href="{{ url('siswa/' . $siswa->no_induk .'/cetak') }}" class="btn btn-success btn-sm" title="Detail Siswa"><span>Cetak Laporan <i class="fa fa-print"></i></span></a><br><br>
+	<a href="{{ url('siswa/' . $siswa->no_induk .'/cetak') }}" class="btn btn-success btn-sm" title="Cetak Laporan"><span>Cetak Laporan <i class="fa fa-print"></i></span></a><br><br>
 	<table class="table table-bordered table-striped table-condensed">
 		<thead>
 			<tr>

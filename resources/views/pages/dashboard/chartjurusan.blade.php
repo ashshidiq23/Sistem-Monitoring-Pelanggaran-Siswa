@@ -6,34 +6,34 @@
 	<script src="{{ asset('assets/js/chart-master/Chart.js')}}"></script>
 	<canvas id="serverstatus01" height="150" width="150"></canvas>
 		<script>
+			var rpl = {{$pelanggaran_rpl}}
+			var tkj = {{$pelanggaran_tkj}}
+			var ap  = {{$pelanggaran_ap}}
 			var doughnutData = [
 				{
-					value: 40,
+					value: rpl,
 					color:"#2196f3"
 				},
 				{
-					value : 30,
+					value : tkj,
 					color : "#0d47a1"
 				},
 				{
-					value : 30,
+					value : ap,
 					color : "#b0bec5"
 				}];
 			var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
 		</script>
-		<div class="row">
-			<div class="col-sm-3 col-xs-4 col-xs-offset-1">
-				<p class="btn btn-indicator1">RPL</p>
-				<p>40%</p>
+		<footer>
+			<div class="col-sm-3 col-xs-offset-1">
+				<p class="btn btn-xs btn-indicator1">RPL: {{$pelanggaran_rpl}}</p>
 			</div>
 			<div class="col-sm-3 col-xs-4">
-				<p class="btn btn-indicator2">TKJ</p>
-				<p>30%</p>
+				<p class="btn btn-xs btn-indicator2">TKJ: {{$pelanggaran_tkj}}</p>
 			</div>
 			<div class="col-sm-3 col-xs-4">
-				<p class="btn btn-indicator3">AP</p>
-				<p>30%</p>
+				<p class="btn btn-xs btn-indicator3">AP: {{$pelanggaran_ap}}</p>
 			</div>
-		</div>
+		</footer>
 	</div><! --/grey-panel -->
 </div><!-- /col-md-4-->

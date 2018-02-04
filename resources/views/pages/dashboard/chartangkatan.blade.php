@@ -6,25 +6,25 @@
 	<script src="{{ asset('assets/js/chart-master/Chart.js')}}"></script>
 	<canvas id="serverstatus03" height="150" width="150"></canvas>
 		<script>
+			var l = {{$jkl}}
+			var p = {{$jkp}}
 			var doughnutData = [
 				{
-					value: 70,
+					value: l,
 					color:"#4db6ac"
 				},
 				{
-					value : 30,
+					value : p,
 					color : "#ff5252"
 				}];
 			var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
 		</script>
 		<div class="row">
-			<div class="col-sm-3 col-xs-4 ">
-				<p class="btn btn-indicator4">Laki-laki</p>
-				<p>70%</p>
+			<div class="col-sm-2 col-xs-offset-3 ">
+				<p class="btn btn-xs btn-indicator4">L: {{$jkl}}</p>
 			</div>
-			<div class="col-sm-3 col-xs-4 col-xs-offset-1">
-				<p class="btn btn-indicator5">Perempuan</p>
-				<p>30%</p>
+			<div class="col-sm-3 col-xs-4">
+				<p class="btn btn-xs btn-indicator5">P: {{$jkp}}</p>
 			</div>
 		</div>
 	</div><! --/grey-panel -->

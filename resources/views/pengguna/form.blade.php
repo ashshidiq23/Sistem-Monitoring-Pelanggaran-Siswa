@@ -2,20 +2,6 @@
     {!! Form::hidden('kode_pelanggaran', $pelanggaran->kode_pelanggaran) !!}
 @endif
 
-{{--kategori--}}
-@if($errors->any())
-    <div class="form-group {{ $errors->has('kategori')? 'has-error' : 'has-success' }}">
-@else
-    <div class="form-group">
-@endif
-            {!! Form::label('kategori', 'Kategori', ['class' => 'control-label']) !!}
-            {!!Form::select('kategori', ['A' => 'A', 'B' => 'B', 'C' => 'C', 'D' => 'D', 'E' => 'E'], null, ['class'=>'form-control', 'placeholder' => 'Pilih Kategori...'])!!}
-            @if ($errors->has('kategori'))
-                    <span class="help-block">
-                        {{ $errors->first('kategori') }}
-                    </span>
-                @endif
-        </div>
 
 {{--kode_pelanggaran--}}
 @if($errors->any())

@@ -56,7 +56,7 @@
 	      </a>
 	    </li>--}}
 	    @if (Auth::user()->level > 1)
-	    <li class="mt1">
+	    {{--<li class="mt1">
 	      @if (!empty($halaman) && $halaman=='laporan')
 	    		<a class="active" href="{{ url('laporan') }}" >
 	   		@else
@@ -65,23 +65,44 @@
 	     		<i class="lnr lnr-book"></i>
 	      	<span>Laporan</span>
 	      </a>
+	    </li>--}}
+	    <li class="dropdown mt1">
+	      @if (!empty($halaman) && $halaman=='laporan')
+	    		<a class="active" href="{{ url('laporan') }}" >
+	   		@else
+	        <a data-toggle="dropdown" class="dropdown-toggle" href="{{ url('laporan') }}" >
+	      @endif
+	     		<i class="lnr lnr-book"></i>
+	      	<span>Laporan</span>
+	      </a>
+	      	<ul class="dropdown-menu extended tasks-bar">
+      			<div class="notify-arrow notify-arrow-green"></div>
+            <li>
+            	<a href="{{ url('rekap') }}">Rekap Laporan</a>
+            </li>
+            <li>
+            	<a href="{{ url('laporan') }}">Log Laporan</a>
+            </li>
+          </ul>
 	    </li>
 	    @endif
 	    @if (Auth::user()->level == 1)
 	    <li class="mt1">
-	      @if (!empty($halaman) && $halaman=='pengguna')
+	      {{--@if (!empty($halaman) && $halaman=='pengguna')
 	    		<a class="active" href="{{ route('register') }}" >
 	   		@else
 	        <a href="{{ route('register') }}" >
+	      @endif--}}
+	      @if (!empty($halaman) && $halaman=='pengguna')
+	    		<a class="active" href="{{ url('pengguna') }}" >
+	   		@else
+	        <a href="{{ url('pengguna') }}" >
 	      @endif
 	     		<i class="lnr lnr-screen"></i>
-	      	<span>Tambah Pengguna</span>
+	      	<span>Daftar Pengguna</span>
 	      </a>
 	    </li>
 	    @endif
 		</ul>	
 	</div>
 </div>
-
-
-<!--sidebar end-->

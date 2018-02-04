@@ -36,12 +36,13 @@ class LapPenghargaanController extends Controller
 		return redirect('siswa');
 	}
 	public function destroy($id) {
-		$penghargaan = Penghargaan::findOrFail($id);
-		$siswa = Siswa::findOrFail($id);
-		$poin_siswa= $siswa->poin-$penghargaan->poin_ubah;
-		$penghargaan->siswa()->detach($siswa);
+		$penghargaan = Penghargaan_Siswa::where('no', $id);
+		$penghargaan2 = Penghargaan_Siswa::where('no', $id)->first();
+		$siswa = Siswa::where('no_induk', $penghargaan2->no_induk)->first();
+		$poin_siswa = $siswa->poin-$penghargaan2->poin_ubah;
 		$siswa->update(['poin'=>$poin_siswa]);
-		return redirect('laporan');
+		$penghargaan->delete();
+		return redirect('laporan');;
 	}
 
 }

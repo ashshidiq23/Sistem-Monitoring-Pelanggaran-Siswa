@@ -22,7 +22,7 @@ class SiswaController extends Controller
 	public function index()
 	{
 		//$halaman='siswa';
-		$siswa_list= Siswa::orderBy('no_induk', 'asc')->Paginate(30);
+		$siswa_list= Siswa::orderBy('kelas', 'asc')->orderBy('jurusan', 'asc')->Paginate(30);
 		$jumlah_siswa = Siswa::count();
 		return view('siswa.index', compact('halaman', 'siswa_list', 'jumlah_siswa'));
 	}
@@ -130,9 +130,11 @@ class SiswaController extends Controller
 		$laporan_list=$pelanggaran_list
 									->union($penghargaan_list)
 									->orderBy('created_at')->get();
+		setlocale(LC_TIME, 'Indonesian');
+		Carbon::setlocale('id');							
 		$dt=Carbon::now();
 		$pdf = PDF::loadview('siswa.cetak', compact('halaman', 'siswa', 'laporan_list','dt'))
-				->setOptions(['defaultFont' => 'sans-serif','isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+				->setOptions(['defaultFont' => 'serif','isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 		return $pdf->stream('Laporan '.$siswa->no_induk .'.pdf');
 	}
 	public function cari(Request $request)

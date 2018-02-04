@@ -14,6 +14,7 @@ class Pelanggaran_Siswa extends Model
     ];*/
     protected $dates =
     ['created_at'];
-    protected $primaryKey = ['kode_pelanggaran','no_induk'];
+    //protected $primaryKey = ['kode_pelanggaran','no_induk'];
+     protected $primaryKey = ['no'];
     public $incrementing = false;
 }

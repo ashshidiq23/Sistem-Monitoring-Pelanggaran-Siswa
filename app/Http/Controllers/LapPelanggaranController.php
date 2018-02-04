@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Siswa;
 use App\Pelanggaran;
+use App\Pelanggaran_Siswa;
 use Auth;
 
 class LapPelanggaranController extends Controller
@@ -29,10 +30,23 @@ class LapPelanggaranController extends Controller
 		$siswa = Siswa::find($no);
 		$pel= Pelanggaran::find($pelanggaran);
 		$poin_siswa= $siswa->poin-$pel->poin;
+		if ($poin_siswa<0) {
+			$poin_siswa=0;
+		}
 		$pel->siswa()->attach($siswa, ['poin_ubah'=>$pel->poin,'poin_sis'=>$poin_siswa,'user'=>$user]);
 		//$siswa->pelanggaran()->attach($pelanggaran);
 		//pengurangan poin
 		$siswa->update(['poin'=>$poin_siswa]);
 		return redirect('siswa');
+	}
+	public function destroy($id)
+	{
+		$pelanggaran = Pelanggaran_Siswa::where('no', $id);
+		$pelanggaran2 = Pelanggaran_Siswa::where('no', $id)->first();
+		$siswa = Siswa::where('no_induk', $pelanggaran2->no_induk)->first();
+		$poin_siswa = $siswa->poin+$pelanggaran2->poin_ubah;
+		$siswa->update(['poin'=>$poin_siswa]);
+		$pelanggaran->delete();
+		return redirect('laporan');
 	}
 }

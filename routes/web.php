@@ -34,10 +34,11 @@ Route::group(['middleware' => 'web'], function(){
 
 	Route::get('laporan/pelanggaran/{siswa}/create', 'LapPelanggaranController@create');
 	Route::post('laporan/pelanggaran/{siswa}', 'LapPelanggaranController@store');
+	Route::delete('laporan/pelanggaran/{id}/hapus', 'LapPelanggaranController@destroy');
 	Route::get('laporan/penghargaan/{siswa}/create', 'LapPenghargaanController@create');
 	Route::post('laporan/penghargaan/{siswa}', 'LapPenghargaanController@store');
-	Route::delete('laporan/{siswa}', 'LapPenghargaanController@destroy');
-	//Route::get('pelanggaran/{siswa}/create', 'SiswaController@updatePelanggaran');
+	Route::delete('laporan/penghargaan/{id}', 'LapPenghargaanController@destroy');
+	route::get('tes', 'LaporanController@tes');
 
 	//pelanggaran controller
 	Route::get('pelanggaran', 'PelanggaranController@index');
@@ -56,7 +57,13 @@ Route::group(['middleware' => 'web'], function(){
 	//pelsis controller
 	Route::get('laporan', 'LaporanController@index');
 
+	//pengguna
+	Route::get('pengguna', 'UserController@index');
+	Route::delete('pengguna/{pengguna}', 'UserController@destroy');
 
-
-	Route::get('/home', 'HomeController@index');
+	//rekap
+	Route::get('rekap', 'RekapController@index');
+	Route::get('rekap/lihat/{kelas}/{jurusan}', 'RekapController@show');
+	Route::get('rekap/cetak/{kelas}/{jurusan}', 'RekapController@cetak');
+	//Route::get('/home', 'HomeController@index');
 });

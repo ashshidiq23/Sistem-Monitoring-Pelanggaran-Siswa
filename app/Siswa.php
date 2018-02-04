@@ -33,8 +33,9 @@ class Siswa extends Model
     {
         $this->attributes['nama_siswa'] = strtolower($nama_siswa);       
     }
-   // public function pelanggaran()
-    //{
+    public function pelanggaran()
+    {
     	//return $this->belongsToMany('App\Pelanggaran', 'pelanggaran_siswa', 'no_induk', 'kode_pelanggaran')->withPivot('poin')->withTimeStamps();	
-   // }
+    	return $this->hasMany('App\Siswa', 'pelanggaran_siswa', 'kode_pelanggaran', 'no_induk')->withPivot('poin')->withTimeStamps();
+    }
 }

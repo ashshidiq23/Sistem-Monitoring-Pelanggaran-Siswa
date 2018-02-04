@@ -3,16 +3,24 @@
 		<div class="white-header">
 			<h5>Poin Terbesar</h5>
 		</div>
-		<p><img src="assets/img/foto/image002.png" class="img-circle" width="80"></p>
-		<p><b>Deden Hendra</b></p>
+		<p><img src="{{ asset("foto/{$siswa->photo}") }}" class="img-circle" width="80"></p>
+		<p><b>{{$siswa->nama_siswa}}</b></p>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-1-5">
 				<p class="small mt">Kelas</p>
-				<p>X-1</p>
+				<p>
+				@if ($siswa->kelas==1)
+				{{'X'}}-{{$siswa->jurusan}}
+				@elseif ($siswa->kelas==2)
+				{{'XI'}}-{{$siswa->jurusan}}
+				@elseif ($siswa->kelas==3)
+				{{'XII'}}-{{$siswa->jurusan}}
+				@endif
+				</p>
 			</div>
 			<div class="col-md-4">
 				<p class="small mt">Poin</p>
-				<p>118</p>
+				<p>{{$siswa->poin}}</p>
 			</div>
 		</div>
 	</div>

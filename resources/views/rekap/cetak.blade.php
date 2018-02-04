@@ -3,7 +3,7 @@
 		<link href="http://localhost/learning/public/assets/css/bootstrap.css" rel="stylesheet">
 		<title>Cetak Laporan</title>
 	</head>
-	<body>
+	<body style="page-break-inside: auto;">
 		<style type="text/css">
 			table{
 				width: 100%;
@@ -30,7 +30,7 @@
 				width: 50%;
 				margin: auto;
 			}
-			@page { margin: 20px 55px; }
+			@page { margin: 20px 55px 70px; }
     	#header { position: static; top: -60px; left: 0px; right: 0px; height: 200px; }
     	#footer { position: fixed; bottom: 60px; left: 0px; right: 0px;  height: 50px; }
    	 	body {
@@ -43,97 +43,105 @@
 		<table id=header>
 			<tr>
 				<td rowspan="3" width="20%"><img src={{ asset("assets/img/bpi.png") }} style="width:120px;height:154px;"></td>
-				<th rowspan="3"><font size="14">CATATAN PELANGGARAN DAN PENGHARGAAN<br>TATA KRAMA DAN TATA TERTIB SISWA<br>SMK BPI</th>
+				<th rowspan="3"><font size="14">REKAP CATATAN PELANGGARAN DAN PENGHARGAAN<br>TATA KRAMA DAN TATA TERTIB SISWA<br>SMK BPI</th>
 			</tr>
 		</table>
 		<hr size="1">
-		<br><font size="12">
-			<table border="0">
+		<br>
+		<table border="0" style="font-weight: bold;font-size: 16px;">
 				<tbody>
 					<tr>
-						<td>No. Induk</td>
-						<td>: {{ $siswa->no_induk }}</td>
-					</tr>
-					<tr>
-						<td>Nama</td>
-						<td>: {{ $siswa->nama_siswa }}</td>
-					</tr>
-					<tr>
-						<td>Kelas</td>
+						<td width=15%>Kelas</td>
 						<td>
-							@if ($siswa->kelas==1)
-							: {{'X'}}-{{$siswa->jurusan}}
-							@elseif ($siswa->kelas==2)
-							: {{'XI'}}-{{$siswa->jurusan}}
-							@elseif ($siswa->kelas==3)
-							: {{'XII'}}-{{$siswa->jurusan}}
+							@if ($siswa[$i]->kelas==1)
+							: {{'X'}}-{{$siswa[$i]->jurusan}}
+							@elseif ($siswa[$i]->kelas==2)
+							: {{'XI'}}-{{$siswa[$i]->jurusan}}
+							@elseif ($siswa[$i]->kelas==3)
+						  : {{'XII'}}-{{$siswa[$i]->jurusan}}
 							@endif
 						</td>
 					</tr>
 					<tr>
-						<td>Jenis Kelamin</td>
-						<td>@if($siswa->jk == 'L')
-							: Laki-Laki
-							@else
-							: Perempuan
-							@endif
+						<td width=15%>Semester</td>
+						<td>
+						  : {{$smt}}
 						</td>
 					</tr>
 					<tr>
-						<td>Tempat Tanggal Lahir</td>
-						<td>: {{ $siswa->tempat_lahir }}, {{ $siswa->tgl_lahir->formatLocalized('%d %B %Y') }}</td>
+						<td width=15%><b>Tahun Ajaran</td>
+						<td>
+						  @if ($smt=='Genap')
+						  : {{$dt->year-1}}/ {{$dt->year}}
+						  @else
+						  : {{$dt->year}}/ {{$dt->year+1}}
+						  @endif
+						</td>
 					</tr>
 				</tbody>
 			</table>
-			<br>
-			<table class="table-bordered2">
-				<thead>
-					<tr>
-						<th>Hari, Tanggal</th>
-						<th>Kode Pelanggaran/Penghargaan</th>
-						<th>Perubahan Poin(+/-)</th>
-						<th>Deposit Poin</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Awal Semester</td>
-						<td></td>
-						<td></td>
-						<td>100</td>
-					</tr>
-					@foreach($laporan_list as $laporan)
-					<tr>
-						<td>{{$laporan->created_at}}</td>
-						<td>{{$laporan->kode_pelanggaran}} {{ucfirst($laporan->jenis_pelanggaran)}}</td>
-						<td>{{$laporan->poin_ubah}}</td>
-						<td>{{$laporan->poin_sis}}</td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
-			<br>
-			<table width ="50" class="border1">
+			<br><font size="12">
+		<table class="table-bordered2">
+			<thead>
 				<tr>
-					<td>Jumlah deposit poin pada akhir semester</td>
-					<td>: {{$siswa->poin}}</td>
+					<th>No. Induk</th>
+					<th>Nama</th>
+					<th>Poin</th>
+					<th>Indeks</th>
 				</tr>
-				<tr>
-					<td>Indeks</td>
-					<td>
-						@if ($siswa->poin < 50)
-						: D
-						@elseif ($siswa->poin < 75)
-						: C
-						@elseif ($siswa->poin < 90)
-						: B
+			</thead>
+			<tbody style="page-break-after: always;">
+				@for ($i=0;$i<20;$i++)
+					<tr>
+						<td>{{$siswa[$i]->no_induk}}</td>
+						<td>{{$siswa[$i]->nama_siswa}}</td>
+						<td>{{$siswa[$i]->poin}}</td>
+						<td>
+						@if ($siswa[$i]->poin < 50)
+						D
+						@elseif ($siswa[$i]->poin < 75)
+						C
+						@elseif ($siswa[$i]->poin < 90)
+						B
 						@else
-						: A
+						A
 						@endif
-					</td>
+						</td>
+					</tr>
+				@endfor
+			</tbody>
+		</table>
+		<table class="table-bordered2">
+			<thead>
+				<tr>
+					<th>No. Induk</th>
+					<th>Nama</th>
+					<th>Poin</th>
+					<th>Indeks</th>
 				</tr>
-			</table>
-			<br>
+			</thead>
+			<tbody>
+				@for ($i=20;$i<$jumlah;$i++)
+					<tr>
+						<td>{{$siswa[$i]->no_induk}}</td>
+						<td>{{$siswa[$i]->nama_siswa}}</td>
+						<td>{{$siswa[$i]->poin}}</td>
+						<td>
+						@if ($siswa[$i]->poin < 50)
+						D
+						@elseif ($siswa[$i]->poin < 75)
+						C
+						@elseif ($siswa[$i]->poin < 90)
+						B
+						@else
+						A
+						@endif
+						</td>
+					</tr>
+				@endfor
+			</tbody>
+		</table>
+		<br>
 			<div id="footer" style="page-break-inside: avoid;">
 			<div class="row">
 				<div class="col-xs-12 col-xs-offset-75">

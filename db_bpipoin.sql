@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Feb 2018 pada 22.46
+-- Generation Time: 04 Feb 2018 pada 19.47
 -- Versi Server: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -174,7 +174,11 @@ INSERT INTO `pelanggaran_siswa` (`no`, `kode_pelanggaran`, `no_induk`, `poin_uba
 (1, 'A.4.', '131410018', 10, 90, 3, '2017-12-25 06:59:54', '2017-12-25 06:59:54'),
 (2, 'B.14.A', '141510006', 3, 97, 2, '2017-12-25 10:30:47', '2017-12-25 10:30:47'),
 (3, 'A.5.', '141510001', 2, 98, 2, '2018-01-28 02:20:31', '2018-01-28 02:20:31'),
-(4, 'A.3.', '141510001', 20, 78, 3, '2018-01-28 02:30:28', '2018-01-28 02:30:28');
+(4, 'A.3.', '141510001', 20, 78, 3, '2018-01-28 02:30:28', '2018-01-28 02:30:28'),
+(5, 'B.3.', '141510004', 100, 0, 2, '2018-02-03 23:58:29', '2018-02-03 23:58:29'),
+(6, 'A.4.', '141510004', 10, -10, 2, '2018-02-03 23:58:41', '2018-02-03 23:58:41'),
+(7, 'B.2.', '161710036', 100, 0, 2, '2018-02-04 00:06:30', '2018-02-04 00:06:30'),
+(8, 'A.1.', '161710036', 20, 0, 2, '2018-02-04 00:06:39', '2018-02-04 00:06:39');
 
 -- --------------------------------------------------------
 
@@ -243,10 +247,10 @@ CREATE TABLE `penghargaan_siswa` (
 --
 
 INSERT INTO `penghargaan_siswa` (`no`, `kode_penghargaan`, `no_induk`, `poin_ubah`, `poin_sis`, `user`, `created_at`, `updated_at`) VALUES
-(1, 'I.2.', '131410018', 10, 100, 2, '2017-12-25 10:17:37', '2017-12-25 10:17:37'),
-(2, 'I.2.', '131410018', 10, 110, 2, '2017-12-25 10:17:44', '2017-12-25 10:17:44'),
 (3, 'I.3.', '141510006', 5, 102, 2, '2018-01-04 09:05:14', '2018-01-04 09:05:14'),
-(4, 'I.2.', '141510001', 10, 88, 3, '2018-01-28 14:55:05', '2018-01-28 14:55:05');
+(4, 'I.2.', '141510001', 10, 88, 3, '2018-01-28 14:55:05', '2018-01-28 14:55:05'),
+(5, 'I.3.', '141510001', 5, 63, 2, '2018-02-04 04:26:09', '2018-02-04 04:26:09'),
+(6, 'II.5.', '141510001', 15, 78, 2, '2018-02-04 04:26:24', '2018-02-04 04:26:24');
 
 -- --------------------------------------------------------
 
@@ -275,10 +279,10 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`no_induk`, `nama_siswa`, `jk`, `tempat_lahir`, `tgl_lahir`, `agama`, `alamat`, `photo`, `kelas`, `jurusan`, `poin`, `created_at`, `updated_at`) VALUES
-('131410018', 'mochamad firman', 'L', 'Bandung', '1998-05-31', 'Islam', 'Komp. Margacinta  Jl. Margacinta        Rt. 03 / 04 Kel. Mekarjaya - Kec. Rancasari  Bandung  40613', 'A16.JPG', 3, 1, 110, '2017-06-14 14:04:55', '2017-12-25 10:17:44'),
-('141510001', 'abillillah auliya saefulloh', 'L', 'Bandung', '1999-08-06', 'Islam', 'Jl. Kiaracondong  Gg. Kbn Kangkung  IX  No. 22  Rt. 03 / 08 Kel. Kebon Kangkung - Kec. Kiaracondong  Bandug 40284', 'A1.JPG', 3, 1, 88, '2017-06-14 13:49:36', '2018-01-28 14:55:05'),
+('131410018', 'mochamad firman', 'L', 'Bandung', '1998-05-31', 'Islam', 'Komp. Margacinta  Jl. Margacinta        Rt. 03 / 04 Kel. Mekarjaya - Kec. Rancasari  Bandung  40613', 'A16.JPG', 3, 1, 90, '2017-06-14 14:04:55', '2018-02-04 11:55:50'),
+('141510001', 'abillillah auliya saefulloh', 'L', 'Bandung', '1999-08-06', 'Islam', 'Jl. Kiaracondong  Gg. Kbn Kangkung  IX  No. 22  Rt. 03 / 08 Kel. Kebon Kangkung - Kec. Kiaracondong  Bandug 40284', 'A1.JPG', 3, 1, 88, '2017-06-14 13:49:36', '2018-02-04 06:29:09'),
 ('141510002', 'adelya fitri pratiwi kirana', 'P', 'Bandung', '1999-06-16', 'Islam', 'Jl. Mars Utara II  No. 16 Blok. Y  60   Rt. 02 / 02 Margahayu Raya  Kel.  Manjahlega - Kec. Rancasari  Bandung  40286', 'A2.JPG', 3, 1, 100, '2017-06-14 13:51:09', '2017-06-19 19:04:04'),
-('141510004', 'aldo julio  prayoga', 'L', 'Bandung', '1999-07-08', 'Islam', 'Jl.  Pagarsih  Gg. Maskardi No. 104/88 Rt. 06/01  Kel. Babakan Tarogong - Kec. Bojongloa Kaler Bandung  40232', 'A3.JPG', 3, 1, 100, '2017-06-14 13:52:13', '2017-06-19 19:08:08'),
+('141510004', 'aldo julio  prayoga', 'L', 'Bandung', '1999-07-08', 'Islam', 'Jl.  Pagarsih  Gg. Maskardi No. 104/88 Rt. 06/01  Kel. Babakan Tarogong - Kec. Bojongloa Kaler Bandung  40232', 'A3.JPG', 3, 1, 0, '2017-06-14 13:52:13', '2018-02-03 23:58:41'),
 ('141510006', 'andika rizki', 'L', 'Bandung', '1999-06-28', 'Islam', 'Jl. Darwati  No. 20  Rt. 01 / 06  KEL. Darwati  Kec. Rancasari  Bandung  40296', 'A4.JPG', 3, 1, 102, '2017-06-14 13:53:19', '2018-01-04 09:05:15'),
 ('141510007', 'andri aji arianto', 'L', 'Bandung', '1998-08-03', 'Islam', 'Jl. Batukali  No. 17  Rt. 09 / 11 Kel. Gumuruh  Kec. Batununggal   Bandung  40275', 'A5.JPG', 3, 1, 100, '2017-06-14 13:54:14', '2017-06-19 20:25:49'),
 ('141510008', 'andri suddrajat jaga sukma', 'L', 'Bandung', '1999-09-06', 'Islam', 'Jl. Margahayu III No. 20    Rt. 04/05  Kel. C ijawura - Kec. Buahbatu   Bandung   40287', 'A6.JPG', 3, 1, 100, '2017-06-14 13:55:08', '2017-06-14 13:55:08'),
@@ -500,11 +504,11 @@ INSERT INTO `siswa` (`no_induk`, `nama_siswa`, `jk`, `tempat_lahir`, `tgl_lahir`
 ('161710030', 'rizki apriana rusmana', 'L', 'Bandung', '2001-04-30', 'Islam', 'Jl. Lemah Hegar  No. 44  Rt. 07/04  Kel. Sukapura Kec.  Kiaraciondong  Bandung  40286', 'A30.JPG', 1, 2, 100, '2017-05-30 10:55:06', '2017-05-30 10:55:06'),
 ('161710031', 'rizki naufal', 'L', 'Palembang', '2001-03-06', 'Islam', 'Jl. Teluk Buyung Kaler No. 40                         Rt.  02 / 03   Kel. Arjuna  - Kec.  Cicendo  Bandung  40172', 'A31.JPG', 1, 2, 100, '2017-05-30 10:56:01', '2017-05-30 10:56:01'),
 ('161710032', 'ruben terry', 'L', 'Bandung', '2000-11-20', 'Islam', 'Jl. Sirnarasa No. 11 Rt. 03/09  Kel. Cibabat - Kec. Cimahi Utara  Cinahi  40513', 'A32.JPG', 1, 2, 100, '2017-05-30 10:57:08', '2017-05-30 10:57:08'),
-('161710033', 'annisa', 'P', 'Bandung', '2000-08-01', 'Islam', 'Jl. Garut No. 4  Laswi Rt. 02/04 Kel. Kacapiring - Kec. Batununggal Bandung 40271', 'B1.JPG', 1, 1, 100, '2017-05-30 11:06:28', '2017-05-30 11:06:28'),
+('161710033', 'annisa', 'P', 'Bandung', '2000-08-01', 'Islam', 'Jl. Garut No. 4  Laswi Rt. 02/04 Kel. Kacapiring - Kec. Batununggal Bandung 40271', 'A20.JPG', 1, 1, 100, '2017-05-30 11:06:28', '2017-05-30 11:06:28'),
 ('161710034', 'ade kamalludin', 'L', 'Bandung', '2000-11-05', 'Islam', 'Jl. Kebun Kengkung  XI  Rt. 05/08 Kel. Kebon Kangkung - Kec. Kiaracondong Bandung  40284', 'B2.JPG', 1, 1, 100, '2017-05-30 11:03:31', '2017-05-30 11:03:31'),
 ('161710035', 'aji nurzaman', 'L', 'Bandung', '2001-05-28', 'Islam', 'Jl. Cikaso Selatan No. 15.A Rt. 07/02 Kel. Sukamaju - Kec. Cibeunying  Bandung  40121', 'B3.JPG', 1, 1, 100, '2017-05-30 11:07:31', '2017-05-30 11:07:31'),
-('161710036', 'athifah salsabila', 'P', 'Bandung', '2001-04-15', 'Islam', 'Jl. Soekarno Hatta Gg. H. Hasan I No. 220 Rt. 04/07  Kel. Babakan Ciparay - Kec. Babakan Ciparay  Bandung  40223', 'B4.JPG', 1, 1, 100, '2017-05-30 11:08:35', '2017-05-30 11:08:35'),
-('161710037', 'chintia nur sandriyanto', 'P', 'Bandung', '2002-02-14', 'Islam', 'Jl. Trsn Nusa Indah V Rt. 07/07  Kel. Melong - Cimahi Selatan Cimahi  40534', 'B5.JPG', 1, 1, 100, '2017-05-30 11:09:33', '2017-05-30 11:09:33'),
+('161710036', 'athifah salsabila', 'P', 'Bandung', '2001-04-15', 'Islam', 'Jl. Soekarno Hatta Gg. H. Hasan I No. 220 Rt. 04/07  Kel. Babakan Ciparay - Kec. Babakan Ciparay  Bandung  40223', 'A27.JPG', 1, 1, 0, '2017-05-30 11:08:35', '2018-02-04 00:06:30'),
+('161710037', 'chintia nur sandriyanto', 'P', 'Bandung', '2002-02-14', 'Islam', 'Jl. Trsn Nusa Indah V Rt. 07/07  Kel. Melong - Cimahi Selatan Cimahi  40534', 'A28.JPG', 1, 1, 100, '2017-05-30 11:09:33', '2017-05-30 11:09:33'),
 ('161710038', 'denna mandela putra naditya', 'L', 'Bandung', '2001-06-13', 'Islam', 'Jl. Pandan Wangi  III No. 8 Rt. 02/16  Kel. Cibiru Wetan - Kec. Cileunyi  Bandung 40625', 'B6.JPG', 1, 1, 100, '2017-05-30 11:10:45', '2017-05-30 11:10:45'),
 ('161710039', 'fadilah hagy nugraha', 'L', 'Bandung', '2001-10-21', 'Islam', 'Jl. Jatihandap No. 141 Rt. 03/10 Kel. Jatihandap - Kec. Madalajati  Bandung  40195', 'B7.JPG', 1, 1, 100, '2017-05-30 11:11:42', '2017-05-30 11:11:42'),
 ('161710040', 'farhan syadat rosadan', 'L', 'Bandung', '2001-05-15', 'Islam', 'Jl. KOMUD Supadio  No. 40/72  Rt. 07/06 Kel. Husen Sastra N - Kec. Cicendo  Bandung  40174', 'B8.JPG', 1, 1, 100, '2017-05-30 11:13:06', '2017-05-30 11:13:06'),
@@ -599,8 +603,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
 (4, 'M.Noor Basuki', '100081', 'ashshidiq23@gmail.com', '$2y$10$nNXtbWI2SO2UPkxmSjzhteYcgRbntcgWtj2jTlXVA//rbgIWksnNy', '2A0n4rlwtOkkGIGcCQRtYOUWFyQff4Ia1BuHXfh1GcL9wZ5JEMyFSnmjpWlY', '2017-06-18 12:51:41', '2017-06-18 12:51:41', 1),
-(5, 'Hasbi Ashshidiq', '10112568', 'hasbi.ashshidiq23@gmail.com', '$2y$10$env11FBNXdkDfkHdyRND5.7495PYCELChdiG9ABWzzpXoy8nmveBy', 'EXxw4BU3t6mHOo0ANqZrf5N50i4Kfq8Nzz2BtRDJ3s1XRn1utxg095R5Ksh7', '2017-06-18 13:42:58', '2017-06-18 13:42:58', 1),
-(6, 'Shelvira Valia', '10112555', 'cek@email.com', '$2y$10$n8QaqYTFDdx32RczUrnjn.f/kgTP0fYEmYnaC8RPgeI0.tlI3rTy.', 'QcXQTMVqhtUZGg4eild3X0pJgCtqgyp1GbZtdksOMOZ4qePW4DmZcLBDZCWG', '2017-06-18 13:46:05', '2017-06-18 13:46:05', 2),
+(5, 'Hasbi Ashshidiq', '10112568', 'hasbi.ashshidiq23@gmail.com', '$2y$10$env11FBNXdkDfkHdyRND5.7495PYCELChdiG9ABWzzpXoy8nmveBy', 'Te6bQxGB2GnKbhnj36OgcHk9UO0jxRVOs5A5Jz2EH8Io1Yd6cscLjltxEZvT', '2017-06-18 13:42:58', '2017-06-18 13:42:58', 1),
+(6, 'Shelvira Valia', '10112555', 'cek@email.com', '$2y$10$n8QaqYTFDdx32RczUrnjn.f/kgTP0fYEmYnaC8RPgeI0.tlI3rTy.', 'nEEJoQsoroSTYHbTkkOb416I3Fz9rcrW1BSK9ytQW3rik5w3d0p1HDpp58pk', '2017-06-18 13:46:05', '2017-06-18 13:46:05', 2),
 (7, 'Rio Rizky Alamsyah', '10112563', 'gpiket@email.com', '$2y$10$hg6RlIM.k2R5ND.nI5kEA.RjTKK/NVlV5gMAz19Xg8KRhO2hC/Vdm', 'mHr9uomFBPacxkDAhKTUBv7VdknysxVHOoTqU14RUkeNBBzCGdLc9IfB5SPA', '2017-06-18 18:58:00', '2017-06-18 18:58:00', 3),
 (8, 'Agus Nugroho', '11122345', 'kesiswaan@gmail.com', '$2y$10$8AniFriWl37NzlwbvYrKWuNOWUwlNPvDZX29RN1RYsuvZ5sgwvqXC', 'tFpS67coWmhjXbHubUHvEYO2EOmdrJ5JrGCeqceKsOFvaKuB6f62k3tVNrLL', '2017-06-18 22:34:07', '2017-06-18 22:34:07', 2),
 (12, 'Hasbi', '123123', 'ashshidiq213@gmail.com', '$2y$10$6ULhKVCw6h.VMWuBZu79SenlSmcsikKF/jd7RHWvNCbq4oAJapnsC', NULL, '2018-02-01 02:14:05', '2018-02-01 02:14:05', 2);
@@ -677,12 +681,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pelanggaran_siswa`
 --
 ALTER TABLE `pelanggaran_siswa`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `penghargaan_siswa`
 --
 ALTER TABLE `penghargaan_siswa`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --
